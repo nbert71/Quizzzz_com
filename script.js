@@ -36,7 +36,7 @@ const display = {
         element.innerHTML = text;
     },
     endQuiz: function () {
-        let endQuizHTML = `
+                let endQuizHTML = `
         <h1>Quiz terminé !</h1>
         <h3>Les traductions</h3>`;
         this.elementShown("quiz", endQuizHTML);
@@ -44,9 +44,12 @@ const display = {
             let reponse = quiz.conclusion[j];
             this.elementShown("reponse" + j, reponse);
         }
+        //document.getElementById("facebook").removeAttribute("style");
+        //FB.XFBML.parse();
     },
     question: function () {
         this.elementShown("question", quiz.getCurrentQuestion().text);
+        //document.getElementById("facebook").style.display = 'none';
     },
     choices: function () {
         let choices = quiz.getCurrentQuestion().choices;
@@ -69,7 +72,6 @@ const display = {
                 element.style.display = 'none';
             }
         }
-
     },
     progress: function () {
         let currentQuestionNumber = quiz.currentQuestionIndex + 1;
