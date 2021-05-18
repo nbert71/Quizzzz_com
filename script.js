@@ -93,17 +93,17 @@ quizApp = () => {
 let questions = [
     new Question(
         "Couleur",
-        ["Rouge", "Bleu", "Jaune", "Vert"],
+        ["Rouge 🟥", "Bleu 🟦", "Jaune 🟨", "Vert 🟩"],
         ["Red", "Blue", "Yellow", "Green"]
     ),
     new Question(
         "Fruit",
-        ["Pomme", "Poire", "Raisin", "Fraise"],
+        ["Pomme 🍎", "Poire 🍐", "Raisin 🍇", "Fraise 🍓"],
         ["Apple", "Pear", "Grapes", "Strawberry"]
     ),
     new Question(
         "Animal",
-        ["Mouton", "Cheval", "Grenouille"],
+        ["Mouton 🐑", "Cheval 🐴", "Grenouille 🐸"],
         ["Sheep", "Horse", "Frog"]
     )
 ];
