@@ -56,7 +56,7 @@ body .container .choices button:active {
   transform: scale(0.9);
   transition: transform 0.1s;
 }
-body .container .choices button p {
+body .container .choices button span {
   font-size: 1.3rem;
 }
 body #progress {
