@@ -12,7 +12,14 @@
 </head>
 
 <body>
-
+  <style>
+    .no-border {
+      border-style: none !important;
+      box-shadow: none !important;
+      display: grid;
+      place-items: center;
+    }
+  </style>
   <div class="ui text container">
     <img src="img/logo.png" style="width: 200px;">
     <div id="quiz">
@@ -23,23 +30,23 @@
 
 
       <div class="choices ui text container">
-        <div class="ui segments">
-          <div class="ui segment">
+        <div class="ui segments no-border">
+          <div class="ui segment no-border">
             <button id="guess0" class="btn ui basic button">
               <p id="choice0"></p>
             </button>
           </div>
-          <div class="ui segment">
+          <div class="ui segment no-border">
             <button id="guess1" class="btn ui basic button">
               <p id="choice1"></p>
             </button>
           </div>
-          <div class="ui segment">
+          <div class="ui segment no-border">
             <button id="guess2" class="btn ui basic button">
               <p id="choice2"></p>
             </button>
           </div>
-          <div class="ui segment">
+          <div class="ui segment no-border">
             <button id="guess3" class="btn ui basic button">
               <p id="choice3"></p>
             </button>
