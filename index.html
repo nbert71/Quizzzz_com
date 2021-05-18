@@ -7,36 +7,34 @@
     
   <title>Quiz - modèle</title>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="ui text container">
     <div id="quiz">
-      <h1><span>Q</span>uiz <i class="far fa-question-circle"></i></h1>
+      <h1 class="ui dividing header">Quiz <i class="far fa-question-circle"></i></h1>
 
-      <h2 id="question"></h2>
-
-      <h3 id="score"></h3>
+      <h2 id="question" class="first"></h2>
 
 
 
       <div class="choices">
-        <button id="guess0" class="btn">        
+        <button id="guess0" class="btn ui basic button">
           <p id="choice0"></p>
         </button>
 
-        <button id="guess1" class="btn">
+        <button id="guess1" class="btn ui basic button">
           <p id="choice1"></p>
         </button>
           
-        <button id="guess2" class="btn">
+        <button id="guess2" class="btn ui basic button">
           <p id="choice2"></p>
         </button>
           
-        <button id="guess3" class="btn">
+        <button id="guess3" class="btn ui basic button">
           <p id="choice3"></p>
         </button>
 
