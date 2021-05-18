@@ -44,12 +44,12 @@ const display = {
             let reponse = quiz.conclusion[j];
             this.elementShown("reponse" + j, reponse);
         }
-        //document.getElementById("facebook").removeAttribute("style");
+        //document.getElementById("twitter").removeAttribute("style");
         //FB.XFBML.parse();
     },
     question: function () {
         this.elementShown("question", quiz.getCurrentQuestion().text);
-        //document.getElementById("facebook").style.display = 'none';
+        //document.getElementById("twitter").style.display = 'none';
     },
     choices: function () {
         let choices = quiz.getCurrentQuestion().choices;

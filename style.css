@@ -72,4 +72,8 @@ body .container .conclusion p{
   text-align: left;
 }
 
+.bouton{
+  display: inline-flex !important;
+}
+
 /*# sourceMappingURL=style.css.map */
