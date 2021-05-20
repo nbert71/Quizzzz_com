@@ -62,15 +62,17 @@ fetch('./questions_quiz.json').then(response => {
             element.innerHTML = text;
         },
         endQuiz: function () {
-            let endQuizHTML = `
-                <h1>Quiz terminé !</h1>
-                <h3>Les traductions</h3>`;
-            this.elementShown("quiz", endQuizHTML);
+            document.getElementById('question_blocks').style.display = 'none';
+            document.getElementById('progress').style.display = 'none';
+            document.getElementById('question').style.display = 'none';
+            this.elementShown('titre', 'Quiz terminé !')
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
             }
             document.getElementById("conclusion").removeAttribute("style");
+            console.log("endQuiz bien réussi");
+            document.getElementById("yolo").style.display = 'block';
         },
         question: function () {
             this.elementShown("question", quiz.getCurrentQuestion().text);
@@ -78,6 +80,8 @@ fetch('./questions_quiz.json').then(response => {
             element.style.display = 'none';
         },
         choices: function () {
+            console.log('==============================================================')
+            console.log(quiz);
             let choices = quiz.getCurrentQuestion().choices;
 
             guessHandler = (id, guess) => {
@@ -109,10 +113,15 @@ fetch('./questions_quiz.json').then(response => {
     quizApp = (quiz) => {
         console.log(quiz);
         if (quiz.hasEnded()) {
+            console.log('fin');
             display.endQuiz();
         } else {
+            console.log('debut');
+            console.log('a');
             display.question();
+            console.log('b');
             display.choices();
+            console.log('c');
             display.progress();
         }
     }
@@ -120,7 +129,16 @@ fetch('./questions_quiz.json').then(response => {
     //create quiz
     let quiz = new Quiz(liste_questions);
     console.log(quiz);
+    document.getElementById("yolo").onclick = function() {
+        quiz.currentQuestionIndex = 0;
+        quiz.conclusion = [];
+        document.getElementById('question_blocks').style.display = 'block';
+        document.getElementById('progress').style.display = 'block';
+        document.getElementById('question').style.display = 'block';
+        quizApp(quiz);
+    };
     quizApp(quiz);
+
 
 
 
