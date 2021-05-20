@@ -47,7 +47,7 @@
 
   <div class="ui text container">
     <div id="quiz">
-      <h1 class="ui dividing header">Quiz <i class="far fa-question-circle"></i></h1>
+      <h1 class="ui dividing header">Quiz</h1>
 
       <h2 id="question" class="first"></h2>
 
@@ -55,33 +55,37 @@
 
       <div class="choices ui text container">
         <div class="ui segments no-border">
-          <div class="ui segment no-border">
+          <div class="ui segment no-border" id="answer0">
             <button id="guess0" class="joli-btn ui basic button fluid">
               <span id="choice0"></span>
             </button>
           </div>
-          <div class="ui segment no-border">
+          <div class="ui segment no-border" id="answer1">
             <button id="guess1" class="joli-btn fluid ui basic button">
               <span id="choice1"></span>
             </button>
           </div>
-          <div class="ui segment no-border">
+          <div class="ui segment no-border" id="answer2">
             <button id="guess2" class="joli-btn ui basic button fluid">
               <span id="choice2"></span>
             </button>
           </div>
-          <div class="ui segment no-border">
+          <div class="ui segment no-border" id="answer3">
             <button id="guess3" class="joli-btn ui basic button fluid">
               <span id="choice3"></span>
             </button>
           </div>
+          <div class="ui segment no-border" id="answer4">
+            <button id="guess4" class="joli-btn ui basic button fluid">
+              <span id="choice4"></span>
+            </button>
+          </div>
+          <div class="ui segment no-border" id="answer5">
+            <button id="guess5" class="joli-btn ui basic button fluid">
+              <span id="choice5"></span>
+            </button>
+          </div>
         </div>
-        <button id="guess4" class="btn">
-          <p id="choice4"></p>
-        </button>
-        <button id="guess5" class="btn">
-          <p id="choice5"></p>
-        </button>
       </div>
 
       <p id="progress"></p>
@@ -94,6 +98,7 @@
       <p id="reponse2"></p><br>
       <p id="reponse3"></p><br>
       <p id="reponse4"></p><br>
+      <p id="reponse5"></p><br>
     </div>
 
   </div>

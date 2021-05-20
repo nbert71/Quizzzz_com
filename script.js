@@ -88,9 +88,9 @@ fetch('./questions_quiz.json').then(response => {
                 if (i < choices.length) {
                     this.elementShown("choice" + i, choices[i]);
                     guessHandler("guess" + i, choices[i]);
-                    document.getElementById("choice" + i).removeAttribute("style");
+                    document.getElementById("answer" + i).removeAttribute("style");
                 } else {
-                    let element = document.getElementById("choice" + i)
+                    let element = document.getElementById("answer" + i)
                     element.style.display = 'none';
                 }
             }
