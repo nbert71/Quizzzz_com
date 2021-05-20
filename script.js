@@ -135,6 +135,7 @@ fetch('./questions_quiz.json').then(response => {
         document.getElementById('question_blocks').style.display = 'block';
         document.getElementById('progress').style.display = 'block';
         document.getElementById('question').style.display = 'block';
+        document.getElementById('titre').innerText = 'Quiz';
         quizApp(quiz);
     };
     quizApp(quiz);
