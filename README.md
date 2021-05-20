@@ -8,10 +8,11 @@ formera la "pseudo parcours" de l'élève à l'école.
 
 Utiliser un serveur absolument soit Python soit Php
 
-```bash```
+```bash
 python http.server 8000
 ou
 php -S localhost:8000
+```
 
 
 
