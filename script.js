@@ -63,16 +63,19 @@ fetch('./questions_quiz.json').then(response => {
         },
         endQuiz: function () {
             let endQuizHTML = `
-    <h1>Quiz terminé !</h1>
-    <h3>Les traductions</h3>`;
+                <h1>Quiz terminé !</h1>
+                <h3>Les traductions</h3>`;
             this.elementShown("quiz", endQuizHTML);
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
             }
+            document.getElementById("conclusion").removeAttribute("style");
         },
         question: function () {
             this.elementShown("question", quiz.getCurrentQuestion().text);
+            let element = document.getElementById("conclusion");
+            element.style.display = 'none';
         },
         choices: function () {
             let choices = quiz.getCurrentQuestion().choices;
