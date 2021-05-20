@@ -8,3 +8,8 @@ formera la "pseudo parcours" de l'élève à l'école.
 
 #### Démarrer projet avec Sass 
 * `npm run sass`
+
+
+#### Liste des devs
+Ni🥥
+Pilouf 🦦
