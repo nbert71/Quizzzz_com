@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Paramètres pour le partage sur Facebook -->
+    <meta property="og:url" content="https://quiz-alpha.assos.centrale-marseille.fr" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Quizz pour les alphas" />
+    <meta property="og:description" content="Quel parcours feras-tu à Centrale Marseille" />
+    <meta property="og:image"
+        content="https://com.centrale-marseille.fr/charte_graphique/img/logo-zExcl.703b058d.png" />
+
+    <title>Quiz - modèle</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+
+
+<body>
+    <style>
+        html,body{
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: "Barlow";
+            src: url("/fonts/Barlow-Regular.ttf") format("ttf");
+        }
+
+        @font-face {
+            font-family: "Barlowsemicondensed";
+            src: url("/fonts/BarlowSemiCondensed-Regular.ttf") format("ttf");
+        }
+
+        .ui.text.container {
+            font-family: Barlow, Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+        }
+
+        body {
+            font-family: Barlow, sans-serif !important;
+        }
+
+        h1 h2 h3 h4 h5 h6 {
+            font-family: Barlow, sans-serif !important;
+        }
+
+        .no-border {
+            border-style: none !important;
+            box-shadow: none !important;
+            display: grid;
+            place-items: center;
+        }
+
+        .joli-btn {
+            opacity: 1 !important;
+        }
+
+        .center-button {
+            display: inline-flex;
+        }
+
+        .centre {
+            text-align: center;
+        }
+    </style>
+
+    <style>
+        @keyframes tonext {
+            75% {
+                left: 0;
+            }
+
+            95% {
+                left: 100%;
+            }
+
+            98% {
+                left: 100%;
+            }
+
+            99% {
+                left: 0;
+            }
+        }
+
+        @keyframes tostart {
+            75% {
+                left: 0;
+            }
+
+            95% {
+                left: -300%;
+            }
+
+            98% {
+                left: -300%;
+            }
+
+            99% {
+                left: 0;
+            }
+        }
+
+        @keyframes snap {
+            96% {
+                scroll-snap-align: center;
+            }
+
+            97% {
+                scroll-snap-align: none;
+            }
+
+            99% {
+                scroll-snap-align: none;
+            }
+
+            100% {
+                scroll-snap-align: center;
+            }
+        }
+
+
+
+        * {
+            box-sizing: border-box;
+            scrollbar-color: transparent transparent;
+            /* thumb and track color */
+            scrollbar-width: 0px;
+        }
+
+        *::-webkit-scrollbar {
+            width: 0;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background: transparent;
+            border: none;
+        }
+
+        * {
+            -ms-overflow-style: none;
+        }
+
+        ol,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            position: relative;
+            width:100vw;
+            height:70vh;
+            filter: drop-shadow(0 0 10px #0003);
+            perspective: 100px;
+        }
+
+        .carousel__viewport {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            overflow-y: hidden;
+            counter-reset: item;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel__viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel__slide {
+            position: relative;
+            flex: 0 0 100%;
+            width: 100%;
+            background-color: #FFF; /* Couleur fond pair*/
+            counter-increment: item;
+        }
+
+        .carousel__slide:nth-child(even) {
+            background-color: #aaa; /* Couleur fond impair*/
+        }
+
+        .carousel__slide:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -40%, 70px);
+            color: #000;
+            font-size: 2em;
+        }
+
+        .carousel__snapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: center;
+        }
+
+        @media (hover: hover) {
+            .carousel__snapper {
+                animation-name: tonext, snap;
+                animation-timing-function: ease;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+            }
+
+            .carousel__slide:last-child .carousel__snapper {
+                animation-name: tostart, snap;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .carousel__snapper {
+                animation-name: none;
+            }
+        }
+
+        .carousel:hover .carousel__snapper,
+        .carousel:focus-within .carousel__snapper {
+            animation-name: none;
+        }
+
+        .carousel__navigation {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        .carousel__navigation-list,
+        .carousel__navigation-item {
+            display: inline-block;
+        }
+
+        .carousel__navigation-button {
+            display: inline-block;
+            width: 1.5rem;
+            height: 0.25rem;
+            background-color: #333;
+            background-clip: content-box;
+            font-size: 0;
+            transition: transform 0.1s;
+        }
+
+        .carousel::before,
+        .carousel::after,
+        .carousel__prev,
+        .carousel__next {
+            position: absolute;
+            top: 0;
+            margin-top: 50vh;
+            width: 30vw;
+            height: 100vh;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            font-size: 0;
+            outline: 0;
+        }
+
+        .carousel::before,
+        .carousel__prev {
+            left: -1rem;
+        }
+
+        .carousel::after,
+        .carousel__next {
+            right: -1rem;
+        }
+
+        .carousel::before,
+        .carousel::after {
+            content: '';
+            z-index: 1;
+            background-color: transparent;
+            background-size: 1.5rem 1.5rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #333; 
+            font-size: 2.5rem;
+            line-height: 4rem;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        #reponse{
+            padding: 10vw 10vw ;
+            padding-bottom: 0;
+            text-align: center;
+            font-size:16px;
+            color: #333;
+        }
+    </style>
+
+    <div style="height:10vh"><h2>Truc au dessus</h2></div>
+
+    <section class="carousel" aria-label="Gallery">
+        <ol class="carousel__viewport">
+            <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <p id="reponse">Côté vie associative le pôle citoyenneté t’attend : L’association Cheer up!, qui a pour but
+                        d'aider les jeunes atteints de cancer à réaliser leurs projets personnels pourrait t’intéresser. Si
+                        l’égalité des chances à l’école est un sujet qui te tient particulièrement à cœur, tu vas adorer Échange
+                        Phocéen, une association qui organise des séances de tutorat. Si tu as envie de rencontrer et intégrer les
+                        étudiants internationaux, tu rejoindras ICM. Enfin, tu pourras aussi rejoindre ISF, afin de réaliser des
+                        actions locales pour contribuer à un environnement sain et accessibles à tous.</p>
+                </div>
+                <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+                <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+            </li>
+            <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <p id="reponse">Tes traits de personnalité vont intuitivement te pousser vers une alternance
+                        entrepreneuriat. Ainsi, 1 semaine sur 4, tu passeras la plupart de ton temps au Deck, le
+                        préincubateur de l’école, espace dédié à cultiver ta fibre entrepreneuriale avec un
+                        accompagnement personnalisé : 300m2 rénové pour l’idéation et le prototypage de projet, afin de
+                        te projeter dans la création d’entreprise.</p><br>
+                </div>
+                <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+            </li>
+            <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <p id="reponse">Tu aimes les maths ?! Tant d’options et de spécialisations s’offrent à toi ! Si ton alternance
+                        te permet d’acquérir des compétences spécifiques, ton parcours académique sera également l’occasion de
+                        personnaliser ton parcours à 100%. Après avoir consolidé tes connaissances dans les disciplines
+                        scientifiques fondamentales, tu choisiras sans doute l’approfondissement « Mathématique, Informatique,
+                        Économie » ainsi que 3 options (Sociologie des organisations + Énergie &amp; environnement + Dynamique des
+                        milieux continus). Au semestre 8, tu retrouveras Romain sur le parcours thématique « Environnement :
+                        management et technologies » et tu deviendras intraitable sur les questions de développement durable et de
+                        transition écologique. Enfin, en 3e année, tu opteras sans doute pour l'option « CLIMATH : modélisation pour
+                        le Climat, la Terre et l'Homme » .</p>
+                </div>
+                <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+            </li>
+            <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <p id="reponse">Le vélo étant pour toi un véritable mode de vie, tu finiras par réaliser ta mobilité
+                        internationale à la Danmarks Tekniske Universitet.</p>
+                </div>
+                <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide5" class="carousel__next">Go to first slide</a>
+            </li>
+            <li id="carousel__slide5" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <p id="reponse">Le point d’orgue de ta formation sera ton double diplôme en Architecture navale au Politecnico
+                        de Milan. Cette spécialisation t’ouvre de nouvelles voies professionnelles inattendues.</p>
+                </div>
+                <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+            </li>
+        </ol>
+        
+        <div class="carousel__navigation">
+            <ol class="carousel__navigation-list">
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide2" class="carousel__navigation-button">Go to slide 2</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide3" class="carousel__navigation-button">Go to slide 3</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide4" class="carousel__navigation-button">Go to slide 4</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide5" class="carousel__navigation-button">Go to slide 5</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <div style="height:20vh">
+        <h2>truc au dessous</h2>
+    </div>
+    
+
+
+</body>
