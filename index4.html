@@ -69,41 +69,7 @@
     </style>
 
     <style>
-        @keyframes tonext {
-            75% {
-                left: 0;
-            }
-
-            95% {
-                left: 100%;
-            }
-
-            98% {
-                left: 100%;
-            }
-
-            99% {
-                left: 0;
-            }
-        }
-
-        @keyframes tostart {
-            75% {
-                left: 0;
-            }
-
-            95% {
-                left: -300%;
-            }
-
-            98% {
-                left: -300%;
-            }
-
-            99% {
-                left: 0;
-            }
-        }
+        
 
         @keyframes snap {
             96% {
@@ -122,7 +88,6 @@
                 scroll-snap-align: center;
             }
         }
-
 
 
         * {
@@ -171,10 +136,13 @@
             bottom: 0;
             left: 0;
             display: flex;
-            overflow-y: hidden;
+            flex-wrap: wrap;
+            flex-direction: row;
+            overflow-y: scroll;
+            overflow-x: hidden;
             counter-reset: item;
             scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
+            scroll-snap-type: y mandatory;
         }
 
         .carousel__viewport::-webkit-scrollbar {
@@ -184,6 +152,7 @@
         .carousel__slide {
             position: relative;
             flex: 0 0 100%;
+            height: 100%;
             width: 100%;
             background-color: #FFF; /* Couleur fond pair*/
             counter-increment: item;
@@ -193,7 +162,7 @@
             background-color: #aaa; /* Couleur fond impair*/
         }
 
-        .carousel__slide:before {
+        .carousel__slide:before {/*le truc pour mettre des chiffres en avant*/
             position: absolute;
             top: 50%;
             left: 50%;
@@ -211,24 +180,7 @@
             scroll-snap-align: center;
         }
 
-        @media (hover: hover) {
-            .carousel__snapper {
-                animation-name: tonext, snap;
-                animation-timing-function: ease;
-                animation-duration: 4s;
-                animation-iteration-count: infinite;
-            }
-
-            .carousel__slide:last-child .carousel__snapper {
-                animation-name: tostart, snap;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .carousel__snapper {
-                animation-name: none;
-            }
-        }
+        
 
         .carousel:hover .carousel__snapper,
         .carousel:focus-within .carousel__snapper {
@@ -263,11 +215,7 @@
         .carousel__prev,
         .carousel__next {
             position: absolute;
-            top: 0;
-            margin-top: 50vh;
-            width: 30vw;
-            height: 100vh;
-            transform: translateY(-50%);
+            width: 100vw;
             border-radius: 50%;
             font-size: 0;
             outline: 0;
@@ -275,12 +223,14 @@
 
         .carousel::before,
         .carousel__prev {
-            left: -1rem;
+            top: 0;
+            height:30vh;
         }
 
         .carousel::after,
         .carousel__next {
-            right: -1rem;
+            bottom: 0;
+            height:40vh;
         }
 
         .carousel::before,
