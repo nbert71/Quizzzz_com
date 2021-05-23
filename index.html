@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
 
   <!-- Paramètres pour le partage sur Facebook -->
   <meta property="og:url"           content="https://quiz-alpha.assos.centrale-marseille.fr" />
   <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Quizz pour les alphas" />
-  <meta property="og:description"   content="Quel parcours feras-tu à Centrale Marseille" />
-  <meta property="og:image"         content="https://com.centrale-marseille.fr/charte_graphique/img/logo-zExcl.703b058d.png" />
-    
-  <title>Quiz - modèle</title>
+  <meta property="og:title"         content="Quizz pour les admissibles" />
+  <meta property="og:description"   content="Quel parcours feras-tu à Centrale Marseille ?" />
+  <meta property="og:image"         content="img/logo_centrale_marseille.png" />
+
+  <title>AlphaQuiz</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 </head>
@@ -57,14 +57,22 @@
       display: grid;
       place-items: center;
     }
+    .ui.segment.no-border {
+      padding: 0.5em;
+    }
     .joli-btn {
       opacity: 1 !important;
+      border-radius: 5px !important;
+
     }
     .center-button {
       display: inline-flex;
     }
     .centre {
       text-align: center;
+    }
+    .ui.progress .bar {
+      background-color: #000f9f;
     }
   </style>
   <a href="https://www.centrale-marseille.fr/"><img src="img/logo_centrale_marseille.svg" style="width: 200px;" /></a>
@@ -76,7 +84,7 @@
 
 
 
-      <div class="choices ui text container" style ="height: 40vh" id="question_blocks">
+      <div class="choices ui text container" style ="height: 60vh" id="question_blocks">
         <div class="ui segments no-border">
           <div class="ui segment no-border" id="answer0">
             <button id="guess0" class="joli-btn ui basic button fluid">
@@ -111,7 +119,11 @@
         </div>
       </div>
 
-      <p id="progress"></p>
+      <div class="ui progress" data-total="7" id="progress-bar">
+        <div class="bar"></div>
+      </div>
+
+      <p id="progress" class="centre"></p>
 
     </div>
 
@@ -132,14 +144,18 @@
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    <button id="yolo" style="display: none">coucou</button>
+    <button id="comeback" style="display: none" class="ui right labeled icon button"><i class=" right icon redo"></i>Recommencer</button>
+
+
 
 
   </div>
 
-
-   
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <script src="script.js" type="text/javascript" ></script>
+
 </body>
 
 
