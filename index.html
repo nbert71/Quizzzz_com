@@ -110,7 +110,7 @@
       .navbar {
         width: 100vw;
         background-color: #FFFFFF;
-        margin: 2 0;
+        margin-bottom:14px;
       }
 
       #titre {
@@ -124,6 +124,7 @@
       .ui.progress.top {
         display: block;
         margin-bottom: 14px;
+        margin-top:0px;
       }
 
       #progress-bar,
@@ -147,6 +148,10 @@
       #question_blocks{
         height:53vh !important;
       }
+      #conclusion{
+        padding: 0 20px;
+        text-align: justify;
+      }
     }
   </style>
 
@@ -157,7 +162,7 @@
     <div id="quiz">
       <h1 class="ui dividing header" id="titre">Quiz</h1>
 
-      <div class="ui progress top" data-total="7" id="progress-bar">
+      <div class="ui progress top" data-total="7" id="progress-bar-top">
         <div class="bar"></div>
       </div>
 
@@ -204,7 +209,7 @@
 
 
 
-        <div class="ui progress bottom" data-total="7" id="progress-bar">
+        <div class="ui progress bottom" data-total="7" id="progress-bar-bottom">
           <div class="bar"></div>
         </div>
 

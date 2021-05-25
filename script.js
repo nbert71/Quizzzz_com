@@ -60,7 +60,8 @@ fetch('./questions_quiz.json').then(response => {
         },
         endQuiz: function () {
             document.getElementById('question_blocks').style.display = 'none';
-            document.getElementById('progress-bar').style.display = 'none';
+            document.getElementById('progress-bar-bottom').style.display = 'none';
+            document.getElementById('progress-bar-top').style.display = 'none';
             document.getElementById('question').style.display = 'none';
             this.elementShown('titre', 'Quiz terminé !')
             for (j = 0; j < quiz.conclusion.length; j++) {
@@ -97,7 +98,7 @@ fetch('./questions_quiz.json').then(response => {
         progress: function () {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
             //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
-            $('#progress-bar').progress('increment',1);
+            $('.ui.progress').progress('increment',1);
         }
     }
 
@@ -124,11 +125,11 @@ fetch('./questions_quiz.json').then(response => {
         document.getElementById('question').style.display = 'block';
         document.getElementById('titre').innerText = 'Quiz';
         document.getElementById('comeback').style.display = 'none';
-        $('#progress-bar').progress();
+        $('.ui.progress').progress();
         quizApp(quiz);
 
     };
-    $('#progress-bar').progress();
+    $('.ui.progress').progress();
     console.log("coucou")
     quizApp(quiz);
 
