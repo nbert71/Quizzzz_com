@@ -4,7 +4,7 @@ fetch('./questions_quiz.json').then(response => {
     return response.json();
 }).then(data => {
 
-    class Question{
+    class Question {
         constructor(text, choices, answers) {
             this.text = text;
             this.choices = choices;
@@ -68,7 +68,7 @@ fetch('./questions_quiz.json').then(response => {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
             }
-            document.getElementById("conclusion").removeAttribute("style");
+            document.getElementById("conclusion").removeAttribute("style");    
             document.getElementById("comeback").style.display = 'block';
         },
         question: function () {
@@ -98,7 +98,7 @@ fetch('./questions_quiz.json').then(response => {
         progress: function () {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
             //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
-            $('.ui.progress').progress('increment',1);
+            $('.ui.progress').progress('increment', 1);
         }
     }
 
@@ -117,7 +117,7 @@ fetch('./questions_quiz.json').then(response => {
     //create quiz
     let quiz = new Quiz(liste_questions);
     console.log(quiz);
-    document.getElementById("comeback").onclick = function() {
+    document.getElementById("comeback").onclick = function () {
         quiz.currentQuestionIndex = 0;
         quiz.conclusion = [];
         document.getElementById('progress-bar-top').style.display = 'block';
