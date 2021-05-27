@@ -24,6 +24,7 @@ html {
 body {
     font-family: 'Barlow', sans-serif !important;
     background-color: #eff0f4;
+    font-size: 14pt !important;
 }
 h1 h2 h3 h4 h5 h6 {
     font-family: 'Barlow Semi Condensed', sans-serif !important;
@@ -62,6 +63,7 @@ h1 h2 h3 h4 h5 h6 {
     border-radius: 5px;
     width: 450px;
     margin-bottom: 20px;
+    font-size: 14pt;
 }
 .btn:hover {
     background-color: #eff0f4;
