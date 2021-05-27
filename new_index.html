@@ -9,6 +9,15 @@
 </head>
 <body>
 
+<!--------------------RESEAUX---------------------->
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!--------------------NAVBAR---------------------->
 <nav class="navbar bg-blue">
     <div class="container-fluid">
@@ -26,6 +35,15 @@
         <div class="card-body d-grid gap-2 mx-auto">
             <button class="btn">coucou</button>
             <button class="btn">coucou2</button>
+        </div>
+        <div class="reseaux">
+            <!-- Facebook share button -->
+            <div class="fb-share-button center-button" id="facebook"
+                 data-href="https://quiz-alpha.asso.centrale-marseille.fr" data-layout="button"></div>
+            <!-- Twitter share button -->
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button center-button"
+               data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
 </div>
@@ -61,6 +79,15 @@
                 <img class="images" src="https://picsum.photos/300/200" alt="">
             </div>
 
+        </div>
+
+        <div class="reseaux">
+            <!-- Facebook share button -->
+            <div class="fb-share-button center-button" data-href="https://quiz-alpha.asso.centrale-marseille.fr" data-layout="button"></div>
+            <!-- Twitter share button -->
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button center-button"
+               data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
 </div>
