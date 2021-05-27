@@ -67,22 +67,13 @@ fetch('./questions_quiz.json').then(response => {
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
-                this.elementShown("reponse" + j + "-carousel", reponse);
             }
-            if (document.width > 800) {
-                document.getElementById("conclusion").removeAttribute("style");
-            }
-            else {
-                document.getElementById("conclusion-carousel").removeAttribute("style");
-                document.getElementById("progress").style.display = "none";
-                document.getElementById("question-card").style.paddingTop = 0;
-            }
+            document.getElementById("conclusion").removeAttribute("style");    
             document.getElementById("comeback").style.display = 'block';
         },
         question: function () {
             this.elementShown("question", quiz.getCurrentQuestion().text);
             let element = document.getElementById("conclusion");
-            document.getElementById("conclusion-carousel").style.display = "none";
             element.style.display = 'none';
         },
         choices: function () {
