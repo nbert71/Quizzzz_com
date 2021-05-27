@@ -112,6 +112,13 @@ div.footer-content>a {
 .row {
     padding: 20px;
 }
+.conclusion-card {
+    max-width: 800px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: relative;
+    bottom: 40px;
+}
 
 
 
