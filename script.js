@@ -145,3 +145,9 @@ fetch('./questions_quiz.json').then(response => {
 
 
 
+
+// style button annimation
+$(".btn").click(function(){
+    $(this).addClass("active");
+    setTimeout(() => {$(this).removeClass("active");}, 750);
+});
