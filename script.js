@@ -4,7 +4,7 @@ fetch('./questions_quiz.json').then(response => {
     return response.json();
 }).then(data => {
 
-    class Question{
+    class Question {
         constructor(text, choices, answers) {
             this.text = text;
             this.choices = choices;
@@ -67,13 +67,22 @@ fetch('./questions_quiz.json').then(response => {
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
+                this.elementShown("reponse" + j + "-carousel", reponse);
             }
-            document.getElementById("conclusion").removeAttribute("style");
+            if (document.width > 800) {
+                document.getElementById("conclusion").removeAttribute("style");
+            }
+            else {
+                document.getElementById("conclusion-carousel").removeAttribute("style");
+                document.getElementById("progress").style.display = "none";
+                document.getElementById("question-card").style.paddingTop = 0;
+            }
             document.getElementById("comeback").style.display = 'block';
         },
         question: function () {
             this.elementShown("question", quiz.getCurrentQuestion().text);
             let element = document.getElementById("conclusion");
+            document.getElementById("conclusion-carousel").style.display = "none";
             element.style.display = 'none';
         },
         choices: function () {
@@ -98,7 +107,7 @@ fetch('./questions_quiz.json').then(response => {
         progress: function () {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
             //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
-            $('.ui.progress').progress('increment',1);
+            $('.ui.progress').progress('increment', 1);
         }
     }
 
@@ -117,7 +126,7 @@ fetch('./questions_quiz.json').then(response => {
     //create quiz
     let quiz = new Quiz(liste_questions);
     console.log(quiz);
-    document.getElementById("comeback").onclick = function() {
+    document.getElementById("comeback").onclick = function () {
         quiz.currentQuestionIndex = 0;
         quiz.conclusion = [];
         document.getElementById('progress-bar').style.display = 'block';
