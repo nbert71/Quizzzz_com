@@ -5,25 +5,29 @@ Gris foncé  #4d5f80
 Gris clair  #eff0f4
 */
 
-@font-face {
-    font-family: "Barlow";
-    src: url("/fonts/Barlow-Regular.ttf") format("ttf");
-}
-@font-face {
-    font-family: "Barlowsemicondensed";
-    src: url("/fonts/BarlowSemiCondensed-Regular.ttf") format("ttf");
-}
+/*@font-face {*/
+/*    font-family: "Barlow";*/
+/*    src: url("./fonts/Barlow-Regular.ttf") format("ttf");*/
+/*}*/
+/*@font-face {*/
+/*    font-family: "Barlowsemicondensed";*/
+/*    src: url("./fonts/BarlowSemiCondensed-Regular.ttf") format("ttf");*/
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Barlow:wght@100;400&display=swap');
+
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-    /*font-family: Barlow, sans-serif !important;*/
+    font-family: 'Barlow', sans-serif !important;
     background-color: #eff0f4;
 }
-/*h1 h2 h3 h4 h5 h6 {*/
-/*    font-family: Barlowsemicondensed, sans-serif !important;*/
-/*}*/
+h1 h2 h3 h4 h5 h6 {
+    font-family: 'Barlow Semi Condensed', sans-serif !important;
+}
 
 /********************* NAVBAR *********************/
 .bg-blue {
@@ -31,6 +35,7 @@ body {
 }
 .h1 {
     color: #FFFFFF;
+    font-family: 'Barlow Semi Condensed', sans-serif !important;
 }
 
 /********************* CARD QUESTION *********************/
@@ -55,7 +60,7 @@ body {
 .btn {
     border-color: #eff0f4;
     border-radius: 5px;
-    max-width: 450px;
+    width: 450px;
     margin-bottom: 20px;
 }
 .btn:hover {
@@ -117,6 +122,9 @@ div.footer-content>a {
     }
     .footer-content {
         font-size: 8pt;
+    }
+    .btn {
+        width: 70vw;
     }
 }
 
