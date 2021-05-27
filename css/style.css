@@ -53,9 +53,7 @@ h1 h2 h3 h4 h5 h6 {
     text-align: center;
 }
 
-/********************* REPONSES *********************/
-.center-reponses {
-}
+
 
 /********************* BUTTONS REPONSE *********************/
 .btn {
@@ -113,6 +111,11 @@ div.footer-content>a {
 /********************* CONCLUSION *********************/
 .row {
     padding: 20px;
+}
+.images{
+    width:100%;
+    height: auto;
+    border-radius: 20px;
 }
 .conclusion-card {
     max-width: 800px;
