@@ -122,6 +122,16 @@ div.footer-content>a {
     bottom: 40px;
 }
 
+/********************* RESEAUX *********************/
+.reseaux {
+    text-align: right;
+    padding: 7px;
+    line-height: 10px;
+    align-items: center;
+}
+.center-button {
+    display: inline-flex !important;
+}
 
 
 /********************* PETIT TEL *********************/
