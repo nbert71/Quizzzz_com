@@ -60,16 +60,17 @@ fetch('./questions_quiz.json').then(response => {
         },
         endQuiz: function () {
             document.getElementById('question_blocks').style.display = 'none';
-            document.getElementById('progress-bar-bottom').style.display = 'none';
-            document.getElementById('progress-bar-top').style.display = 'none';
+            //document.getElementById('progress-bar-bottom').style.display = 'none';
+            //document.getElementById('progress-bar-top').style.display = 'none';
+            document.getElementById('bar-progression').style.display = 'none';
             document.getElementById('question').style.display = 'none';
-            this.elementShown('titre', 'Quiz terminé !')
+            //this.elementShown('titre', 'Quiz terminé !')
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
             }
             document.getElementById("conclusion").removeAttribute("style");    
-            document.getElementById("comeback").style.display = 'block';
+            //document.getElementById("comeback").style.display = 'block';
         },
         question: function () {
             this.elementShown("question", quiz.getCurrentQuestion().text);
@@ -88,9 +89,11 @@ fetch('./questions_quiz.json').then(response => {
                 if (i < choices.length) {
                     this.elementShown("choice" + i, choices[i]);
                     guessHandler("guess" + i, choices[i]);
-                    document.getElementById("answer" + i).removeAttribute("style");
+                    // document.getElementById("answer" + i).removeAttribute("style");
+                    document.getElementById("guess" + i).removeAttribute("style");
                 } else {
-                    let element = document.getElementById("answer" + i)
+                    // let element = document.getElementById("answer" + i)
+                    let element = document.getElementById("guess" + i)
                     element.style.display = 'none';
                 }
             }
@@ -98,7 +101,7 @@ fetch('./questions_quiz.json').then(response => {
         progress: function () {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
             //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
-            $('.ui.progress').progress('increment', 1);
+            //$('.ui.progress').progress('increment', 1);
         }
     }
 
@@ -117,19 +120,19 @@ fetch('./questions_quiz.json').then(response => {
     //create quiz
     let quiz = new Quiz(liste_questions);
     console.log(quiz);
-    document.getElementById("comeback").onclick = function () {
-        quiz.currentQuestionIndex = 0;
-        quiz.conclusion = [];
-        document.getElementById('progress-bar-top').style.display = 'block';
-        document.getElementById('question_blocks').style.display = 'block';
-        document.getElementById('question').style.display = 'block';
-        document.getElementById('titre').innerText = 'Quiz';
-        document.getElementById('comeback').style.display = 'none';
-        $('.ui.progress').progress();
-        quizApp(quiz);
-
-    };
-    $('.ui.progress').progress();
+    // document.getElementById("comeback").onclick = function () {
+    //     quiz.currentQuestionIndex = 0;
+    //     quiz.conclusion = [];
+    //     document.getElementById('progress-bar-top').style.display = 'block';
+    //     document.getElementById('question_blocks').style.display = 'block';
+    //     document.getElementById('question').style.display = 'block';
+    //     document.getElementById('titre').innerText = 'Quiz';
+    //     document.getElementById('comeback').style.display = 'none';
+    //     $('.ui.progress').progress();
+    //     quizApp(quiz);
+    //
+    // };
+    //$('.ui.progress').progress();
     console.log("coucou")
     quizApp(quiz);
 
