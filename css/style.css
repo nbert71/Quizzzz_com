@@ -133,6 +133,9 @@ div.footer-content>a {
 p.card-text {
     text-align: justify;
 }
+.card-body {
+    padding-top: 0;
+}
 
 /********************* RESEAUX *********************/
 .reseaux {
@@ -155,7 +158,10 @@ p.card-text {
         font-size: 8pt;
     }
     .btn {
-        width: 70vw;
+        width: 80vw;
+    }
+    .card-body {
+        padding: 1rem 0 1rem 0;
     }
 }
 
