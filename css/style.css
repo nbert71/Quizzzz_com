@@ -124,10 +124,11 @@ div.footer-content>a {
 }
 .conclusion-card {
     max-width: 800px;
-    padding-top: 12px;
+    padding-top: 52px;
     padding-bottom: 12px;
     position: relative;
     bottom: 40px;
+    /*top: 0;*/
 }
 
 /********************* RESEAUX *********************/
