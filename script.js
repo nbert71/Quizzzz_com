@@ -102,6 +102,9 @@ fetch('./questions_quiz.json').then(response => {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
             //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
             //$('.ui.progress').progress('increment', 1);
+            $("#dynamic")
+                .css("width", currentQuestionNumber*100/(quiz.questions.length + 1) + "%")
+                .attr("aria-valuenow", currentQuestionNumber);
         }
     }
 

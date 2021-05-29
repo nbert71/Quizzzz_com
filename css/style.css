@@ -52,7 +52,9 @@ h1 h2 h3 h4 h5 h6 {
     padding: 5px 10px 5px 10px;
     text-align: center;
 }
-
+.card-title {
+    margin-bottom: 1.5rem;
+}
 
 
 /********************* BUTTONS REPONSE *********************/
@@ -63,9 +65,11 @@ h1 h2 h3 h4 h5 h6 {
     margin-bottom: 20px;
     font-size: 14pt;
 }
-.btn:hover {
-    background-color: #eff0f4;
-    color: #4d5f80;
+@media (min-width: 769px) {
+    .btn:hover {
+        background-color: #eff0f4;
+        color: #4d5f80;
+    }
 }
 .btn:active {
     background-color: #000f9f;
@@ -162,6 +166,9 @@ p.card-text {
     }
     .card-body {
         padding: 1rem 0 1rem 0;
+    }
+    .card-title {
+        margin-bottom: .5rem;
     }
 }
 
