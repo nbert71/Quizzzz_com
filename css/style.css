@@ -130,6 +130,9 @@ div.footer-content>a {
     bottom: 40px;
     /*top: 0;*/
 }
+p.card-text {
+    text-align: justify;
+}
 
 /********************* RESEAUX *********************/
 .reseaux {
