@@ -37,7 +37,6 @@ fetch('./questions_quiz.json').then(response => {
 
 
     for (let i = 0; i < data.questions.length; i++) {
-        //console.log(data.questions[i].question);
         let liste_choix = [];
         let liste_predictions = [];
         for (let j = 0; j < data.questions[i].reponses.length; j++) {
@@ -49,8 +48,6 @@ fetch('./questions_quiz.json').then(response => {
             liste_predictions);
         liste_questions.push(temp_question);
     }
-    //console.log(liste_questions);
-
 
     //regroup all functions relative to the app display
     const display = {
@@ -60,11 +57,8 @@ fetch('./questions_quiz.json').then(response => {
         },
         endQuiz: function () {
             document.getElementById('question_blocks').style.display = 'none';
-            //document.getElementById('progress-bar-bottom').style.display = 'none';
-            //document.getElementById('progress-bar-top').style.display = 'none';
             document.getElementById('bar-progression').style.display = 'none';
             document.getElementById('question').style.display = 'none';
-            //this.elementShown('titre', 'Quiz terminé !')
             for (j = 0; j < quiz.conclusion.length; j++) {
                 let reponse = quiz.conclusion[j];
                 this.elementShown("reponse" + j, reponse);
@@ -82,17 +76,18 @@ fetch('./questions_quiz.json').then(response => {
             guessHandler = (id, guess) => {
                 document.getElementById(id).onclick = function () {
                     quiz.response(guess);
-                    quizApp(quiz);
+                    $(this).addClass("active");
+                    setTimeout(() => {$(this).removeClass("active");
+                        quizApp(quiz);
+                        }, 1000);
                 }
             }
             for (let i = 0; i < 6; i++) {
                 if (i < choices.length) {
                     this.elementShown("choice" + i, choices[i]);
                     guessHandler("guess" + i, choices[i]);
-                    // document.getElementById("answer" + i).removeAttribute("style");
                     document.getElementById("guess" + i).removeAttribute("style");
                 } else {
-                    // let element = document.getElementById("answer" + i)
                     let element = document.getElementById("guess" + i)
                     element.style.display = 'none';
                 }
@@ -100,8 +95,6 @@ fetch('./questions_quiz.json').then(response => {
         },
         progress: function () {
             let currentQuestionNumber = quiz.currentQuestionIndex + 1;
-            //this.elementShown('progress', "Question " + currentQuestionNumber + " sur " + quiz.questions.length);
-            //$('.ui.progress').progress('increment', 1);
             $("#dynamic")
                 .css("width", currentQuestionNumber*100/(quiz.questions.length + 1) + "%")
                 .attr("aria-valuenow", currentQuestionNumber);
@@ -133,9 +126,7 @@ fetch('./questions_quiz.json').then(response => {
     //     document.getElementById('comeback').style.display = 'none';
     //     $('.ui.progress').progress();
     //     quizApp(quiz);
-    //
     // };
-    //$('.ui.progress').progress();
     console.log("coucou")
     quizApp(quiz);
 
@@ -147,13 +138,4 @@ fetch('./questions_quiz.json').then(response => {
     console.log(err);
     return -1
     // AJOUTER UNE ERREUR VISUELLE SUR LE SITE DISANT QUON A PAS PU CHARGER LES QUESTIONS
-});
-
-
-
-
-// style button annimation
-$(".btn").click(function(){
-    $(this).addClass("active");
-    setTimeout(() => {$(this).removeClass("active");}, 750);
 });
