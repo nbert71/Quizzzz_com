@@ -139,6 +139,11 @@ p.card-text {
 }
 .card-body {
     padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+p.petit {
+    font-size: 10pt;
 }
 
 /********************* RESEAUX *********************/

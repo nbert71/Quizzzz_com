@@ -79,7 +79,7 @@ fetch('./questions_quiz.json').then(response => {
                     $(this).addClass("active");
                     setTimeout(() => {$(this).removeClass("active");
                         quizApp(quiz);
-                        }, 1000);
+                        }, 600);
                 }
             }
             for (let i = 0; i < 6; i++) {
